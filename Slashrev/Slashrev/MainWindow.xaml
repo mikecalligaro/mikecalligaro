@@ -1,0 +1,20 @@
+﻿<Window x:Class="Slashrev.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Slashrev"
+        mc:Ignorable="d"
+        Title="Press Enter to write the second string to the clipboard, Space to reload, and ESC to exit." 
+        WindowStartupLocation="Manual"
+        Height="150" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Name="current" Content="Label1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Grid.Row="1" Name="update" Content="Label2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
