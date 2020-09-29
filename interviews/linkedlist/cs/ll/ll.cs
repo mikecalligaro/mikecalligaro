@@ -30,12 +30,13 @@ namespace ll
             node.next.prev = node.prev;
             node.prev.next = node.next;
         }
-//    }
+    }
 
-        // Uncomment out the above bracket and end the class here.  
-        // Everything below this shouldn't be in the interview.
-
-
+    // Everything from here on down shouldn't be in the interview.
+    // It's just really quick scaffolding I threw together to make
+    // sure the code above does what I expect it to.
+    // To get this to build again, remove the closing bracket right
+    // above this comment.
 
         public void push(Node node)
         {
