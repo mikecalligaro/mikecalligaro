@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Persistence</title>
+
+        <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>        
+    </head>
+
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            // React code will go here
+            class App extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        value: this.props.init,
+                        per: this.calcPer(this.props.init)
+                    }
+                }
+
+                componentDidMount() {
+                    this.findPer();
+                }
+
+                calcPer(a) {
+                    let count = 0;
+                    while (a > 9) {
+                        a = this.perStep(a);
+                        count++;
+                    }
+                    return count;
+                }
+
+                perStep(a) {
+                    let b = 1;
+                    
+                    while (a > 0) {
+                        b = b * (a % 10);
+                        a = Math.floor(a / 10);
+                    }
+
+                    return b;
+                }
+                
+                findPer() {                    
+                    let a = this.props.init;
+                    let b = 1;
+
+                    do {
+                        a++;
+                        b = this.calcPer(a);                        
+                    } while (b != this.props.perSearch)
+
+                    this.setState({
+                        value: a,
+                        per: b
+                    })
+                }
+
+                render() {
+                    return <h1>Value = {this.state.value} Per = {this.state.per}</h1>
+                }
+            }
+
+            ReactDOM.render(<App init={77} perSearch={5} />, document.getElementById('root'))
+        </script>
+    </body>
+</html>
